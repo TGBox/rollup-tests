@@ -6,4 +6,4 @@ interface ButtonProps {
 
 declare const Button: (props: ButtonProps) => JSX.Element;
 
-export { Button };
+export { Button, type ButtonProps };
