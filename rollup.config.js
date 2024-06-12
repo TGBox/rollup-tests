@@ -15,6 +15,7 @@ const rollupConfig = [
         file: packageJson.main,
         format: "cjs",
         sourcemap: true,
+        exports: 'named',
       },
       {
         file: packageJson.module,
@@ -29,7 +30,7 @@ const rollupConfig = [
       typescript({ tsconfig: "./tsconfig.json" }),
       terser(),
     ],
-    external: ["react", "react-dom"],
+    external: Object.keys(packageJson.dependencies || {}),
   },
   {
     input: "src/index.ts",
