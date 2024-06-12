@@ -15,7 +15,7 @@ const rollupConfig = [
         file: packageJson.main,
         format: "cjs",
         sourcemap: true,
-        exports: 'named',
+        name: "rollup-tests"
       },
       {
         file: packageJson.module,
@@ -33,8 +33,8 @@ const rollupConfig = [
     external: Object.keys(packageJson.dependencies || {}),
   },
   {
-    input: "src/index.ts",
-    output: [{ file: "dist/types.d.ts", format: "es" }],
+    input: "dist/esm/types/index.d.ts",
+    output: [{ file: "dist/index.d.ts", format: "es" }],
     plugins: [dts.default()],
   },
 ];
